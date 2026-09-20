@@ -2,7 +2,11 @@
 
 An interactive reconstruction of eight months of one person's digital life, assembled from 53 small records — searches, purchases, playlists, places, photos, messages, events and notes.
 
-The premise: someone found a box of receipts and worked out the story hiding inside them.
+**Live demo:** https://life-in-receipts-zeta.vercel.app/
+
+**GitHub:** https://github.com/vinay-niranjan7/life-in-receipts
+
+> A frontend-only hackathon project that turns disconnected digital-life receipts into **Insights → Connections → Story**.
 
 ## Problem
 
@@ -21,7 +25,7 @@ Every number, month and thread list in the interface is derived from the dataset
 
 ## Project structure
 
-```
+```text
 /
 ├── index.html            semantic shell: intro, header, tabs, main, footer
 ├── README.md
@@ -58,7 +62,7 @@ Native ES modules (`<script type="module" src="./js/app.js">`) with `import` / `
   - *Life signals* — receipts matched to Learning, Participation, Development, College & exams and Downtime, with counts and month spread. Selecting one lists its receipts.
   - *Discovered patterns* — six generated evidence cards: the longest-running thread, one thread appearing in many formats, a thread that starts mid-story, the turning-point month, the convergence month, and the thread that survives every phase. Each opens its own evidence receipts.
   - *What changed* — each month compared with the month immediately before it, split into new / returns / continuing / quiet threads. Selecting a month opens its chapter.
-  - *Connect the dots* — pick a starting receipt and walk a chain. Each step is chosen against the **current** receipt, so the reason printed on every connector ("same thread · DSA · 16 days later") is true of the pair it sits between.
+  - *Connect the dots* — pick a starting receipt and walk a chain. Each step is chosen against the **current** receipt, so the reason printed on every connector (for example, "same thread · DSA · 16 days later") is true of the pair it sits between.
 - **Surprise me** — jumps to a receipt whose chain crosses several threads, explains why, marks it "you are here" and starts the chain from it.
 - **Explore** — full-text search, nine category filters, thread filters, saved moments.
 - **Life Map** — every month with a density bar, receipt count, dominant threads and chapter, plus recurring-thread and receipt-type overviews.
@@ -78,6 +82,15 @@ The data is fictional and contains no personal information.
 
 Archival, not dashboard. Warm paper, receipt stock, perforated edges, typewriter display type and monospace body text. A red stamp accent marks findings; a teal accent marks connections between them. Restrained motion, no gradients, no glass — it should read like an evidence board someone kept carefully.
 
+## Tech stack
+
+- HTML5
+- CSS3
+- Vanilla JavaScript with native ES modules
+- `localStorage` for saved moments, theme and last-tab state
+- Vercel for static production deployment
+- No framework, backend, database, API, bundler or npm dependency
+
 ## Run locally
 
 ES modules need to be served over HTTP (opening the file directly will block imports):
@@ -87,12 +100,18 @@ python3 -m http.server 5173
 # then open http://localhost:5173
 ```
 
+On Windows, you can also use:
+
+```bash
+py -m http.server 5173
+```
+
 ## Deployment (Vercel)
 
 Static, no build step.
 
 - Framework preset: **Other**
-- Root directory: **/**
+- Root directory: **./**
 - Build command: *(empty)*
 - Output directory: *(default)*
 
@@ -103,3 +122,19 @@ vercel --prod # production
 ```
 
 `vercel.json` sets clean URLs, security headers and asset caching.
+
+### GitHub deployment workflow
+
+The production project is connected to the GitHub `main` branch. New commits pushed to `main` trigger a new Vercel deployment automatically.
+
+```bash
+git add .
+git commit -m "update project"
+git push origin main
+```
+
+## Project status
+
+**Production deployed — September 2026.**
+
+The current production build includes the full Story, Patterns, Connect the Dots, Surprise Me, Explore and Life Map experience.
