@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Receipt">
+  <rect width="32" height="32" rx="4" fill="#221D15"/>
+  <path d="M9 6h14v19l-2.3-1.6L18.4 25l-2.3-1.6L13.8 25l-2.3-1.6L9 25z" fill="#F7F3E8"/>
+  <path d="M12 11h8M12 15h8M12 19h5" stroke="#A63D40" stroke-width="1.6" stroke-linecap="round"/>
+</svg>
